@@ -6,11 +6,15 @@
       %span.icon-bar
       %span.icon-bar
     .navbar-brand
-      = link_to "Chestnut", root_path
+      = link_to "<span class= 'glyphicon glyphicon-fire'></span> Chestnut".html_safe, root_path
   .navbar-collapse.collapse
     %ul.nav.navbar-nav
-      %li
-        = link_to "My Library", books_path
+      - if current_page?(books_path)
+        %li.active
+          = link_to "My Library", books_path
+      - else
+        %li
+          = link_to "My Library", books_path
 
     %ul.nav.navbar-nav.navbar-right
       %li.dropdown

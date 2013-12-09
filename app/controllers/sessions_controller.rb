@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
     flash[:success] = "You are now signed in."
-    redirect_to root_url
+    redirect_to books_path
   end
 
   def destroy

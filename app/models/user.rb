@@ -11,5 +11,9 @@ class User < ActiveRecord::Base
     end
   end
 
+  has_many :book_ownerships, class_name: "LibraryItem", foreign_key: "owner_id"
+  has_many :book_borrowings, class_name: "LibraryItem", foreign_key: "borrower_id"
+
+  has_many :library_items
 
 end

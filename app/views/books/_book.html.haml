@@ -1,0 +1,23 @@
+.row
+  %table.table.table-hover
+    %thead
+      %tr
+        / %th #
+        %th Title
+        %th Author
+        %th Owner
+    %tbody
+      - if @borrowed_books
+        - @borrowed_books.each do |record|
+          %tr.active
+            / %td #
+            %td
+              %em= record.book.title
+            %td= record.book.author
+            %td #{record.owner.name} (on loan)
+      - @owned_books.each do |record|
+        %tr
+          / %td #
+          %td= record.book.title
+          %td= record.book.author
+          %td= record.owner.name
