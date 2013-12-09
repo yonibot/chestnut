@@ -1,27 +1,4 @@
 .container
   .row
     %h1 #{@user.name}'s Library
-  .row
-    %table.table.table-hover
-      %thead
-        %tr
-          %th #
-          %th Title
-          %th Author
-          %th Owner
-      %tbody
-        %tr
-          %td 1
-          %td To Kill a Mockingbird
-          %td Harper Lee
-          %td Ted Danson
-        %tr.active
-          %td 2
-          %td 1984
-          %td George Orwell
-          %td C.J. White
-        %tr
-          %td 3
-          %td Life of Pi
-          %td Yann Martell
-          %td C.J. White
+  = render 'book'
