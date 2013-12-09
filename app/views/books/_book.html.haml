@@ -2,28 +2,22 @@
   %table.table.table-hover
     %thead
       %tr
-        %th #
+        / %th #
         %th Title
         %th Author
         %th Owner
     %tbody
-      %tr.active
-        %td 1
-        %td To Kill a Mockingbird
-        %td Harper Lee
-        %td (Ted Danson - on loan)
-      %tr.active
-        %td 2
-        %td Breakfast of Champions  
-        %td Kurt Vonnegut
-        %td (Jim Albert - on loan)
-      %tr
-        %td 3
-        %td 1984
-        %td George Orwell
-        %td Yoni Weisbrod
-      %tr
-        %td 4
-        %td Life of Pi
-        %td Yann Martell
-        %td Yoni Weisbrod
+      - if @borrowed_books
+        - @borrowed_books.each do |record|
+          %tr.active
+            / %td #
+            %td
+              %em= record.book.title
+            %td= record.book.author
+            %td #{record.owner.name} (on loan)
+      - @owned_books.each do |record|
+        %tr
+          / %td #
+          %td= record.book.title
+          %td= record.book.author
+          %td= record.owner.name
