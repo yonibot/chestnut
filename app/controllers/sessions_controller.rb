@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     # raise request.env['omniauth.auth'].to_yaml
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
-    flash[:success] = "You are now signed in."
+    flash[:success] = "You are now signed in. Enjoy!"
     redirect_to books_path
   end
 

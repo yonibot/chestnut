@@ -10,17 +10,17 @@
   .navbar-collapse.collapse
     %ul.nav.navbar-nav
       - if current_page?(books_path)
-        %li.active
-          = link_to "My Library", books_path
-      - else
-        %li
-          = link_to "My Library", books_path
+        %li.active= link_to "#{current_user.name.split.first}'s Library", books_path
+      - if !current_page?(books_path) && current_user
+        %li= link_to "#{current_user.name.split.first}'s Library", books_path
+      %li
+        = link_to "Blog", "#"
 
     %ul.nav.navbar-nav.navbar-right
       %li.dropdown
         %a.dropdown-toggle{"data-toggle" => "dropdown"}
           - if current_user
-            Signed in as #{current_user.name}
+            Signed in as #{current_user.name.split.first}
             %b.caret
             %ul.dropdown-menu
               %li= link_to "Sign Out", signout_path, id: "sign_out"

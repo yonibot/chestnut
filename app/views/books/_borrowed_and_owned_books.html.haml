@@ -1,0 +1,28 @@
+
+%table.table.table-hover
+  %thead
+    %tr
+      / %th #
+      %th Title
+      %th Author
+      %th Owner
+  %tbody
+    - if @borrowed_books
+      - @borrowed_books.each do |record|
+        %tr.active
+          / %td #
+          %td
+            %em= record.book.title
+          %td= record.book.author
+          %td #{record.owner.name} (on loan)
+    - @owned_books.each do |record|
+      %tr
+        / %td #
+        %td
+          = record.book.title
+          / %a(href="http://www.amazon.com/exec/obidos/tg/detail/-/#{record.book.isbn10}")
+          /   View on Amazon
+          #{link_to "Remove", book_path(record), method: :delete, class: "small"}
+        %td= record.book.author
+        %td= record.owner.name
+

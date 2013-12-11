@@ -9,6 +9,9 @@ gem 'bootstrap-sass-rails'
 gem 'haml-rails'
 gem 'omniauth-facebook'
 gem 'figaro'
+gem 'openlibrary'
+gem 'koala'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -26,6 +29,7 @@ gem 'jquery-rails'
 
 group :development do
   gem 'sqlite3'
+  gem 'pry'
 end
 
 group :production do
