@@ -1,4 +1,7 @@
 .container
   .row
-    %h1 #{current_user.name}'s Library
-  = render 'book'
+  = render 'add_book'
+  
+  .row
+    %h2 #{current_user.name}'s Library
+    = render 'borrowed_and_owned_books'
