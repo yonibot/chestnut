@@ -20,8 +20,8 @@
         / %td #
         %td
           = record.book.title
-          / %a(href="http://www.amazon.com/exec/obidos/tg/detail/-/#{record.book.isbn10}")
-          /   View on Amazon
+          %a(href="http://www.amazon.com/exec/obidos/tg/detail/-/#{record.book.isbn10}")
+            View on Amazon
           #{link_to "Remove", book_path(record), method: :delete, class: "small"}
         %td= record.book.author
         %td= record.owner.name

@@ -8,6 +8,7 @@ Chestnut2::Application.routes.draw do
 
   resources :books
 
+  resources :friends_library_items
 
 
 
