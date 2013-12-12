@@ -1,6 +1,28 @@
-%h2 Friends with Chestnut
+%h2 Friends' Libraries
 
-- @friends.each do |friend|
-  %p= friend[0].name
+/ - @friends.each do |friend|
+/   %p= friend["name"]
+
+
+
+%table.table.table-hover
+  %thead
+    %tr
+      / %th #
+      %th Title
+      %th Author
+      %th Owner
+  %tbody
+    - @friends_book_ownings.each do |record|
+      %tr
+        / %td #
+        %td
+          = record.book.title
+          %a(href="http://www.amazon.com/exec/obidos/tg/detail/-/#{record.book.isbn10}")
+            View on Amazon
+          #{link_to "Remove", book_path(record), method: :delete, class: "small"}
+        %td= record.book.author
+        %td= record.owner.name
+
 
 

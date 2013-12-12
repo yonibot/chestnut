@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
     @friends_w_c = []
     self.friends.each do |friend|
       if User.where(name: friend["name"]).first
-        @friends_w_c.push(User.where(name: friend["name"])).first
+        @friends_w_c.push(User.where(name: friend["name"]).first)
       end
     end
     return @friends_w_c
