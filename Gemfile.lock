@@ -150,6 +150,9 @@ GEM
     uglifier (2.3.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    xmpp4r (0.5.5)
+    xmpp4r_facebook (0.1.1)
+      xmpp4r
 
 PLATFORMS
   ruby
@@ -169,3 +172,4 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   sqlite3
   uglifier (>= 1.0.3)
+  xmpp4r_facebook

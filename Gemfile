@@ -11,6 +11,7 @@ gem 'omniauth-facebook'
 gem 'figaro'
 gem 'openlibrary'
 gem 'koala'
+gem 'xmpp4r_facebook'
 
 
 # Gems used only for assets and not required

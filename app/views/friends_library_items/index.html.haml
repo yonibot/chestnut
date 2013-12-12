@@ -1,3 +1,9 @@
+%h2 Friends' Libraries
+
+/ - @friends.each do |friend|
+/   %p= friend["name"]
+
+
 
 %table.table.table-hover
   %thead
@@ -7,15 +13,7 @@
       %th Author
       %th Owner
   %tbody
-    - if @borrowed_books
-      - @borrowed_books.each do |record|
-        %tr.active
-          / %td #
-          %td
-            %em= record.book.title
-          %td= record.book.author
-          %td #{record.owner.name} (on loan)
-    - @owned_books.each do |record|
+    - @friends_book_ownings.each do |record|
       %tr
         / %td #
         %td
@@ -25,4 +23,6 @@
           #{link_to "Remove", book_path(record), method: :delete, class: "small"}
         %td= record.book.author
         %td= record.owner.name
+
+
 

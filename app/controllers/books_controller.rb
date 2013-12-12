@@ -19,7 +19,8 @@ class BooksController < ApplicationController
     @book = Book.where(isbn10: params[:book][:isbn10]).first_or_initialize {|book|
       book.title = book_title
       book.author = book_author
-      book.isbn10 = params[:book][:isbn10] }
+      book.isbn10 = params[:book][:isbn10] 
+    }
     if @book.save
       library_item = LibraryItem.create(book: @book, owner: current_user)
       flash[:success] = "Your book has been added to your library."
