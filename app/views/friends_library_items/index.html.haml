@@ -3,8 +3,6 @@
 / - @friends.each do |friend|
 /   %p= friend["name"]
 
-
-
 %table.table.table-hover
   %thead
     %tr
@@ -23,6 +21,4 @@
           #{link_to "Remove", book_path(record), method: :delete, class: "small"}
         %td= record.book.author
         %td= record.owner.name
-
-
 
