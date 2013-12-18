@@ -10,7 +10,7 @@
   .navbar-collapse.collapse
     %ul.nav.navbar-nav
       - if current_page?(books_path)
-        %li.active= link_to "#{current_user.name.split.first}'s Library", books_path
+        %li.active= link_to "My Library", books_path
       - if !current_page?(books_path) && current_user
         %li= link_to "#{current_user.name.split.first}'s Library", books_path
       %li

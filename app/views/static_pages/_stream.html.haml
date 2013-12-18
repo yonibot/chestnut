@@ -1,0 +1,5 @@
+%h3 Latest Activity on Chestnut:
+- @activities.each do |activity|
+  .activity
+    = activity.owner.name
+    = render_activity activity
