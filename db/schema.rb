@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131217152045) do
+ActiveRecord::Schema.define(:version => 20131218202928) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -40,9 +40,11 @@ ActiveRecord::Schema.define(:version => 20131217152045) do
   end
 
   create_table "library_items", :force => true do |t|
-    t.integer "owner_id"
-    t.integer "borrower_id"
-    t.integer "book_id"
+    t.integer  "owner_id"
+    t.integer  "borrower_id"
+    t.integer  "book_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
