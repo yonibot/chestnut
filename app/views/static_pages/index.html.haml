@@ -5,7 +5,7 @@
     #title2
       Your personal lending library.
   - if !current_user
-    = link_to "<span class= 'glyphicon glyphicon-fire'></span> Sign in or register with Facebook!".html_safe, "/auth/facebook", id: "sign_in", :class => "btn btn-lg btn-success"
+    = link_to "<span class= 'glyphicon glyphicon-fire'></span> Register or sign in with Facebook!".html_safe, "/auth/facebook", id: "sign_in", :class => "btn btn-lg btn-success"
   - else
     = link_to "My Library", books_path, class: "btn btn-lg btn-primary"
 - if !current_user
