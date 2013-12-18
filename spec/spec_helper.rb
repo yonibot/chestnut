@@ -40,4 +40,8 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  require 'public_activity/testing'
+
+  PublicActivity.enabled = false
 end

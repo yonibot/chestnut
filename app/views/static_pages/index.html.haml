@@ -8,14 +8,9 @@
     = link_to "<span class= 'glyphicon glyphicon-fire'></span> Sign in or register with Facebook!".html_safe, "/auth/facebook", id: "sign_in", :class => "btn btn-lg btn-success"
   - else
     = link_to "My Library", books_path, class: "btn btn-lg btn-primary"
-.row.marketing
-  .col-lg-6
-    %h4 Catalogue your books
-    %p Never lose a book again.
-    %h4 Find a Book
-    %p View your friends' personal libraries - maybe they have that book you've been looking for!
-  .col-lg-6
-    %h4 Personal Lending Library +
-    %p Social media features allow you to combine the powers of multiple libraries. 
-    %h4 What to Read Next
-    %p Our Book Engine will tell you which books are trending.
+- if !current_user
+  .row.marketing
+    = render 'marketing'
+- else
+  .row.marketing
+    = render 'stream'

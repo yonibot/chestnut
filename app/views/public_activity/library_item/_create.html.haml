@@ -1,0 +1,6 @@
+- if activity.trackable.book
+  added
+  = link_to activity.trackable.book.title, "http://www.amazon.com/exec/obidos/tg/detail/-/#{activity.trackable.book.isbn10}"
+  to their collection.
+- else
+  added a book which has since been deleted.
