@@ -13,6 +13,7 @@ gem 'openlibrary'
 gem 'koala'
 gem 'thin'
 gem 'public_activity'
+gem 'pry-rails'
 
 
 # Gems used only for assets and not required
