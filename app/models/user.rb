@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  serialize :fb_friends
+
   has_many :book_ownerships, class_name: "LibraryItem", foreign_key: "owner_id"
   has_many :book_borrowings, class_name: "LibraryItem", foreign_key: "borrower_id"
 
@@ -24,14 +26,15 @@ class User < ActiveRecord::Base
     @facebook ||= Koala::Facebook::API.new(self.oauth_token)
   end
 
-  def friends
+  def get_fb_friends
     @facebook ||= Koala::Facebook::API.new(self.oauth_token)
-    @facebook.get_connections("me", "friends")
+    self.fb_friends = @facebook.get_connections("me", "friends")
+    self.save
   end
 
   def friends_with_chestnut
     @friends_w_c = []
-    self.friends.each do |friend|
+    self.fb_friends.each do |friend|
       if User.where(name: friend["name"]).first
         @friends_w_c.push(User.where(name: friend["name"]).first)
       end
