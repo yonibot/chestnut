@@ -10,7 +10,9 @@ Chestnut2::Application.routes.draw do
 
   resources :friends_library_items
 
-
+  namespace :admin do
+    resources :sessions
+  end
 
 
 

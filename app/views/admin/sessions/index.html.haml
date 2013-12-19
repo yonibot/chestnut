@@ -1,0 +1,8 @@
+%h2 App Activity
+
+
+
+%h2 User list
+%ol
+- @users.each do |user|
+  %li= link_to user.name, admin_sessions_path(id: user.id), method: :post
