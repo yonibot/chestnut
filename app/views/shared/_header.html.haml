@@ -17,9 +17,9 @@
         = link_to "Friends' Libraries", friends_library_items_path
       %li
         = link_to "Blog", "#"
-      - if current_user && current_user.alpha
-        %li
-          = link_to "Alpha Tester"
+      / - if current_user && current_user.alpha
+      /   %li
+      /     = link_to "Alpha Tester"
     %ul.nav.navbar-nav.navbar-right
       %li.dropdown
         %a.dropdown-toggle{"data-toggle" => "dropdown"}
