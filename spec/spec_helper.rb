@@ -41,7 +41,4 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
-  require 'public_activity/testing'
-
-  PublicActivity.enabled = false
 end

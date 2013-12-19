@@ -15,6 +15,14 @@ gem 'thin'
 gem 'public_activity'
 
 
+group :test do
+  gem "shoulda-matchers"
+  gem "faker"
+  gem "fabrication"
+end
+
+
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -36,6 +44,7 @@ end
 group :development do
   gem 'sqlite3'
   gem 'pry'
+  gem 'annotate'
 end
 
 group :production do

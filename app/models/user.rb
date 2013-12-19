@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id               :integer          not null, primary key
+#  provider         :string(255)
+#  uid              :string(255)
+#  name             :string(255)
+#  oauth_token      :string(255)
+#  oauth_expires_at :datetime
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  email            :string(255)
+#  location         :string(255)
+#  alpha            :boolean
+#  fb_friends       :text
+#
+
 class User < ActiveRecord::Base
 
   include PublicActivity::Common
@@ -20,7 +38,6 @@ class User < ActiveRecord::Base
   has_many :book_ownerships, class_name: "LibraryItem", foreign_key: "owner_id"
   has_many :book_borrowings, class_name: "LibraryItem", foreign_key: "borrower_id"
 
-  has_many :library_items
 
   def facebook
     @facebook ||= Koala::Facebook::API.new(self.oauth_token)
