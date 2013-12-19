@@ -51,9 +51,11 @@ class User < ActiveRecord::Base
 
   def friends_with_chestnut
     @friends_w_c = []
-    self.fb_friends.each do |friend|
-      if User.where(name: friend["name"]).first
-        @friends_w_c.push(User.where(name: friend["name"]).first)
+    if self.fb_friends != nil
+      self.fb_friends.each do |friend|
+        if User.where(name: friend["name"]).first
+          @friends_w_c.push(User.where(name: friend["name"]).first)
+        end
       end
     end
     return @friends_w_c
