@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
     flash[:success] = "You are now signed in. Enjoy!"
-    get_fb_friends
+    user.get_fb_friends
     redirect_to books_path
   end
 
