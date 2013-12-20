@@ -23,4 +23,6 @@ describe User do
   it { should have_many(:book_ownerships).with_foreign_key('owner_id')}
   it { should have_many(:book_borrowings).with_foreign_key('borrower_id')}
 
+
+
 end

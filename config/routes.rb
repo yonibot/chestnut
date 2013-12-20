@@ -6,12 +6,16 @@ Chestnut2::Application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
-  resources :books
-
   resources :friends_library_items
 
   namespace :admin do
     resources :sessions
+  end
+
+  resources :books, only: [:create, :destroy]
+
+  resources :users do
+    resources :library_items, only: [:index, :create, :destroy]
   end
 
 

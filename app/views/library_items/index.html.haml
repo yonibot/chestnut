@@ -3,5 +3,5 @@
   = render 'add_book'
   
   .row
-    %h2 #{current_user.name}'s Library
+    %h2 #{@library_owner.name}'s Library
     = render 'borrowed_and_owned_books'
