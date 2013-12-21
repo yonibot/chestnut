@@ -1,3 +1,6 @@
 removed
-= link_to activity.trackable.book.title, "http://www.amazon.com/exec/obidos/tg/detail/-/#{activity.trackable.book.isbn10}"
+- if activity.trackable
+  = link_to activity.trackable.book.title, "http://www.amazon.com/exec/obidos/tg/detail/-/#{activity.trackable.book.isbn10}"
+- else
+  a book
 from their collection.
