@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id
     flash[:success] = "You are now signed in. Enjoy!"
     user.get_fb_friends
+    user.get_profile_picture
     redirect_to user_library_items_path(user)
   end
 

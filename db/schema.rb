@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131219104151) do
+ActiveRecord::Schema.define(:version => 20131221232218) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20131219104151) do
     t.string   "location"
     t.boolean  "alpha"
     t.text     "fb_friends"
+    t.string   "profile_picture"
   end
 
 end

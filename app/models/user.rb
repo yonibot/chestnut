@@ -49,6 +49,11 @@ class User < ActiveRecord::Base
     self.save
   end
 
+  def get_profile_picture
+    self.profile_picture = @facebook.get_picture(self.uid, {type: 'square'})
+    self.save
+  end
+
   def friends_with_chestnut
     @friends_w_c = []
     if self.fb_friends != nil

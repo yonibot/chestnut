@@ -24,5 +24,5 @@
           -if current_user == User.find(params[:user_id])
             #{link_to "Remove", user_library_item_path(@library_owner, record), method: :delete, class: "small"}
         %td= record.book.author
-        %td= record.owner.name
+        %td= link_to record.owner.name, user_library_items_path(record.owner)
 

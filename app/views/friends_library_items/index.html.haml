@@ -17,4 +17,4 @@
             %a(href="http://www.amazon.com/exec/obidos/tg/detail/-/#{record.book.isbn10}")
               View on Amazon
           %td= record.book.author
-          %td= record.owner.name
+          %td= link_to record.owner.name, user_library_items_path(record.owner)
