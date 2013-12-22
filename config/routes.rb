@@ -18,6 +18,7 @@ Chestnut2::Application.routes.draw do
     resources :library_items, only: [:index, :create, :destroy]
   end
 
+  get '/find', to: 'library_items#find'
 
 
   # The priority is based upon order of creation:
