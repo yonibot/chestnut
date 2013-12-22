@@ -38,6 +38,8 @@ class User < ActiveRecord::Base
   has_many :book_ownerships, class_name: "LibraryItem", foreign_key: "owner_id"
   has_many :book_borrowings, class_name: "LibraryItem", foreign_key: "borrower_id"
 
+  
+
 
   def facebook
     @facebook ||= Koala::Facebook::API.new(self.oauth_token)

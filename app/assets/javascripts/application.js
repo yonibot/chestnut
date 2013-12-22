@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 //= require twitter/bootstrap
+
+$(document).ready(function() {
+ $("#e9").select2( {width: 'resolve'}); 
+});

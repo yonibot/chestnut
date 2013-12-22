@@ -1,8 +1,6 @@
 %h3 Latest Activity on Chestnut:
-- @activities.each do |activity|
+- @activities.slice(0..4).each do |activity|
   .activity
     - if activity.owner
-      - if activity.owner.profile_picture
-        = image_tag(activity.owner.profile_picture, class: "circular")
       = activity.owner.name
     = render_activity activity

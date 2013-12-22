@@ -1,22 +1,22 @@
 %table.table.table-hover
   %thead
     %tr
-      / %th #
+      %th 
       %th Title
       %th Author
       %th Owner
   %tbody
     - if @borrowed_books
-      - @borrowed_books.each do |record|
+      - @borrowed_books.each_with_index do |record, i|
         %tr.active
-          / %td #
+          %td= i+1
           %td
             %em= record.book.title
           %td= record.book.author
           %td #{record.owner.name} (on loan)
-    - @owned_books.each do |record|
+    - @owned_books.each_with_index do |record, i|
       %tr
-        / %td #
+        %td= i+1
         %td
           = record.book.title
           %a(href="http://www.amazon.com/exec/obidos/tg/detail/-/#{record.book.isbn10}")
