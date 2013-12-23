@@ -8,7 +8,16 @@ class LibraryItemsController < ApplicationController
     @library_owner = User.where(id: params["user_id"]).first
     @borrowed_books = @library_owner.book_borrowings
     @owned_books = @library_owner.book_ownerships
-    @books = Book.new
+    
+    book_info = JSON.parse(open("https://openlibrary.org/search.json?q=#{params[:search_query]}").read)
+    @book_results = book_info["docs"].map do |book|
+      book_array = []
+      book_array.push(book_title: book["title"]) if book["title"]
+      book_array.push(book_author: book["author_name"]) if book["author_name"]
+      book_array.push(book_date: book["publish_date"]) if book["publish_date"]
+      book_array
+    end
+
   end
 
   def destroy

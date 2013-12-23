@@ -1,0 +1,15 @@
+- if params[:search_query]
+  .row
+    %h2 Select your book
+    %table.table.table-hover
+      %thead
+        %tr
+          %th 
+          %th Title
+          %th Author
+  - @book_results.each_with_index do |record, i|
+    %tr
+      %td= i+1
+      %td= record["book_title"]
+      %td= record["book_author"]
+

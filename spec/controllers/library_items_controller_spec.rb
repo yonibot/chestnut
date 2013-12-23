@@ -3,9 +3,7 @@
 
 describe LibraryItemsController do
 
-  describe "GET index" do
-    
-  end
+  describe "GET index"
 
   describe "DELETE destroy"
 
