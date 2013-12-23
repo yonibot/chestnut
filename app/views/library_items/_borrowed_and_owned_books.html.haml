@@ -25,4 +25,6 @@
             #{link_to "Remove", user_library_item_path(@library_owner, record), method: :delete, class: "small"}
         %td= record.book.author
         %td= link_to record.owner.name, user_library_items_path(record.owner)
+= will_paginate @owned_books, class: "digg_pagination"
+= page_entries_info @owned_books
 

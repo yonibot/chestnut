@@ -1,5 +1,7 @@
 require 'open-uri'
 
+require 'will_paginate/array'
+
 class LibraryItemsController < ApplicationController
 
   before_filter :ensure_logged_in
@@ -22,8 +24,9 @@ class LibraryItemsController < ApplicationController
     end
     @library_owner = User.where(id: params["user_id"]).first
     @borrowed_books = @library_owner.book_borrowings
-    @owned_books = @library_owner.book_ownerships
+    @owned_books = @library_owner.book_ownerships.paginate(:page => params[:page], per_page: 10)
   end
+
 
   def destroy
     item = LibraryItem.find(params[:id])

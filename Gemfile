@@ -13,6 +13,7 @@ gem 'openlibrary'
 gem 'koala'
 gem 'thin'
 gem 'public_activity'
+gem 'will_paginate'
 
 
 group :test do
