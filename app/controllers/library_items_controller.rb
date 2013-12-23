@@ -5,19 +5,20 @@ class LibraryItemsController < ApplicationController
   before_filter :ensure_logged_in
 
   def index
+    if params[:search_query]
+      search_query = params[:search_query].split.join('+')
+      book_info = JSON.parse(open("https://openlibrary.org/search.json?q=#{search_query}").read)
+      @book_results = book_info["docs"].map do |book|
+        book_array = []
+        book_array.push(book_title: book["title"]) if book["title"]
+        book_array.push(book_author: book["author_name"].first) if book["author_name"]
+        book_array.push(book_date: book["publish_date"].first) if book["publish_date"]
+        book_array
+      end
+    end
     @library_owner = User.where(id: params["user_id"]).first
     @borrowed_books = @library_owner.book_borrowings
     @owned_books = @library_owner.book_ownerships
-    
-    book_info = JSON.parse(open("https://openlibrary.org/search.json?q=#{params[:search_query]}").read)
-    @book_results = book_info["docs"].map do |book|
-      book_array = []
-      book_array.push(book_title: book["title"]) if book["title"]
-      book_array.push(book_author: book["author_name"]) if book["author_name"]
-      book_array.push(book_date: book["publish_date"]) if book["publish_date"]
-      book_array
-    end
-
   end
 
   def destroy
