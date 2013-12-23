@@ -1,6 +1,7 @@
 .container
-  .row
-    = render 'add_book'
+  - if current_user == @library_owner
+    .row
+      = render 'add_book'
 
   .row
     %h2
