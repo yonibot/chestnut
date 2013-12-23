@@ -5,11 +5,11 @@ class BooksController < ApplicationController
   before_filter :ensure_logged_in
 
   def create
-    isbn = params[:book][:isbn10]
-    @book = Book.where(isbn10: params[:book][:isbn10]).first_or_initialize {|book|
-      book.title = OpenLibraryWrapper::Book.get_title(isbn)
-      book.author = OpenLibraryWrapper::Book.get_author(isbn)
-      book.isbn10 = isbn
+    isbn = params[:book_isbn]
+    @book = Book.where(isbn10: isbn).first_or_initialize {|book|
+      book.title = params[:book_title]
+      book.author = params[:book_author]
+      book.isbn10 = params[:book_isbn]
     }
     if @book.save
       library_item = LibraryItem.new(book: @book, owner: current_user)

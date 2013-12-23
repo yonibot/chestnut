@@ -1,6 +1,11 @@
 .container
-  .row
-    = render 'add_book'
+  - if current_user == @library_owner
+    .row
+      = render 'add_book'
+
+  - if params[:search_query]
+    .row
+      = render 'book_results'
 
   .row
     %h2
