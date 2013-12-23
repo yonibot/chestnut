@@ -2,7 +2,7 @@
   .row
     %h2 Find a book
     = form_tag find_path, method: "get" do
-      = select_tag(:search, options_for_select(@users_friends_book_titles_for_select.zip(@users_friends_book_ids_for_select).unshift(["", ""])), id: "e9", style: 'width:260px')
+      = select_tag(:search, options_for_select(@users_friends_book_titles_for_select.zip(@users_friends_book_ids_for_select).unshift(["Books your friends own", ""])), id: "e9", style: 'width:260px')
       = submit_tag "Who has this book?", class: 'btn btn-info'
   - if params[:search]
     .row
