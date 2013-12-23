@@ -1,16 +1,22 @@
 - if params[:search_query]
-  %h2 Select your book
-  %table.table.table-hover
-    %thead
-      %tr
-        %th 
-        %th Title
-        %th Author
-        %th Published
-    - @book_results.each_with_index do |record, i|
-      %tr
-        %td= i+1
-        %td= record[0][:book_title] if record[0]
-        %td= record[1][:book_author] if record[1]
-        %td= record[2][:book_date] if record[2]
+  - if @book_results != []
+    %h2 Select your book
+    %table.table.table-hover
+      %thead
+        %tr
+          %th 
+          %th Title
+          %th Author
+          %th Published
+          %th ISBN
+          %th
+      - @book_results[0..9].each_with_index do |record, i|
+        %tr
+          %td= i+1
+          %td= record[0][:book_title] if record[0]
+          %td= record[1][:book_author] if record[1]
+          %td= record[2][:book_date] if record[2]
+          %td= record[3][:book_isbn] if record[3]
+          - if record[0] && record[1] && record[2] && record[3]
+            %td= link_to "Add to collection", books_path(book_title: record[0][:book_title], book_author: record[1][:book_author], book_isbn: record[3][:book_isbn]), method: :post
 

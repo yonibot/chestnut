@@ -13,8 +13,12 @@ class LibraryItemsController < ApplicationController
         book_array.push(book_title: book["title"]) if book["title"]
         book_array.push(book_author: book["author_name"].first) if book["author_name"]
         book_array.push(book_date: book["publish_date"].first) if book["publish_date"]
+        book_array.push(book_isbn: book["isbn"].first) if book["isbn"]
         book_array
       end
+    end
+    if @book_results == []
+      flash[:danger] = "Sorry, no books were found. Try entering the ISBN number directly."
     end
     @library_owner = User.where(id: params["user_id"]).first
     @borrowed_books = @library_owner.book_borrowings
