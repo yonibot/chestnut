@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     flash[:success] = "You are now signed in. Enjoy!"
     user.get_fb_friends
     user.get_profile_picture
-    redirect_to user_library_items_path(user)
+    redirect_to root_path
   end
 
   def destroy
