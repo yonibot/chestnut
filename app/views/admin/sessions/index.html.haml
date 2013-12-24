@@ -3,6 +3,12 @@
 
 
 %h2 User list
-%ol
-- @users.each do |user|
-  %li= link_to user.name, admin_sessions_path(id: user.id), method: :post
+%table.table.table-hover
+  %thead
+    %tr
+      %th 
+      %th User
+    - @users.each_with_index do |user, index|
+      %tr
+        %td= index+1
+        %td= link_to user.name, admin_sessions_path(id: user.id), method: :post

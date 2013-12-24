@@ -10,5 +10,5 @@
 %br
 %h4 Add a new book
 = form_tag user_library_items_path(current_user), method: "get" do
-  = text_field_tag :search_query, nil, placeholder: 'Keywords, author or ISBN'
+  = text_field_tag :search_query, nil, placeholder: 'Keywords, author or ISBN', size: 30
   = submit_tag "Find my book", class: 'btn btn-primary'
