@@ -1,0 +1,107 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://openlibrary.org/search.json?q=empire%20falls%20russo
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/0.8.54
+      Date:
+      - Thu, 26 Dec 2013 18:24:13 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ol-Stats:
+      - ! '"SR 1 0.087 TT 0 0.088"'
+    body:
+      encoding: US-ASCII
+      string: ! "{\n \"start\": 0, \n \"num_found\": 2, \n \"numFound\": 2, \n \"docs\":
+        [\n  {\n   \"title_suggest\": \"Empire Falls\", \n   \"edition_key\": [\n
+        \   \"OL24549302M\", \n    \"OL3957257M\", \n    \"OL3952297M\", \n    \"OL23277456M\",
+        \n    \"OL17058942M\", \n    \"OL13356624M\", \n    \"OL9854273M\"\n   ],
+        \n   \"cover_i\": 418040, \n   \"isbn\": [\n    \"0375726403\", \n    \"9780786236510\",
+        \n    \"9780307275134\", \n    \"9780679432470\", \n    \"0679432477\", \n
+        \   \"0307275132\", \n    \"0786236515\", \n    \"9788495908292\", \n    \"8495908298\",
+        \n    \"9780375726408\"\n   ], \n   \"has_fulltext\": true, \n   \"text\":
+        [\n    \"OL24549302M\", \n    \"OL3957257M\", \n    \"OL3952297M\", \n    \"OL23277456M\",
+        \n    \"OL17058942M\", \n    \"OL13356624M\", \n    \"OL9854273M\", \n    \"0375726403\",
+        \n    \"9780786236510\", \n    \"9780307275134\", \n    \"9780679432470\",
+        \n    \"0679432477\", \n    \"0307275132\", \n    \"0786236515\", \n    \"9788495908292\",
+        \n    \"8495908298\", \n    \"9780375726408\", \n    \"Richard Russo\", \n
+        \   \"Luis Murillo Fort (Translator)\", \n    \"47716501\", \n    \"49793271\",
+        \n    \"empirefalls00russrich\", \n    \"OL544180A\", \n    \"Restaurateurs\",
+        \n    \"Accessible book\", \n    \"Fiction\", \n    \"Fathers and daughters\",
+        \n    \"Protected DAISY\", \n    \"Working class\", \n    \"Restaurants\",
+        \n    \"Premio Pulitzer 2002 (Spanish Version)\", \n    \"Empire Falls\",
+        \n    \"OL3351636W\", \n    \"Richard Russo\", \n    \"Richard Russo.\", \n
+        \   \"empire falls\", \n    \"Empire falls\", \n    \"2001088568\", \n    \"01088568\",
+        \n    \"2001048025\", \n    \"Knopf\", \n    \"Alfred A. Knopf\", \n    \"Thorndike
+        Press\", \n    \"Vintage\", \n    \"Vintage Books\", \n    \"n6ujytj\", \n
+        \   \"Emece\", \n    \"THE EMPIRE GRILL was long and low-slung, with windows
+        that ran its entire length, and since the building next door, a Rexall drugstore,
+        had been condemned and razed, it was now possible to sit at the lunch counter
+        and see straight down Empire Avenue all the way to the old textile mill and
+        its adjacent shirt factory.\", \n    \"Maine\"\n   ], \n   \"author_name\":
+        [\n    \"Richard Russo\"\n   ], \n   \"contributor\": [\n    \"Luis Murillo
+        Fort (Translator)\"\n   ], \n   \"ia_loaded_id\": [\n    \"empirefalls00russ_0\"\n
+        \  ], \n   \"oclc\": [\n    \"47716501\", \n    \"49793271\"\n   ], \n   \"ia\":
+        [\n    \"empirefalls00russrich\"\n   ], \n   \"author_key\": [\n    \"OL544180A\"\n
+        \  ], \n   \"subject\": [\n    \"Restaurateurs\", \n    \"Accessible book\",
+        \n    \"Fiction\", \n    \"Fathers and daughters\", \n    \"Protected DAISY\",
+        \n    \"Working class\", \n    \"Restaurants\"\n   ], \n   \"title\": \"Empire
+        Falls\", \n   \"ia_collection_s\": \"printdisabled;americana;internetarchivebooks\",
+        \n   \"printdisabled_s\": \"OL23277456M;OL17058942M\", \n   \"ebook_count_i\":
+        1, \n   \"publish_place\": [\n    \"New York\", \n    \"Waterville, Me\"\n
+        \  ], \n   \"ia_box_id\": [\n    \"IA101521\", \n    \"IA181401\"\n   ], \n
+        \  \"edition_count\": 7, \n   \"key\": \"OL3351636W\", \n   \"id_goodreads\":
+        [\n    \"840926\", \n    \"840927\", \n    \"12364\", \n    \"840928\", \n
+        \   \"187020\"\n   ], \n   \"public_scan_b\": false, \n   \"publisher\": [\n
+        \   \"Knopf\", \n    \"Alfred A. Knopf\", \n    \"Thorndike Press\", \n    \"Vintage\",
+        \n    \"Vintage Books\", \n    \"n6ujytj\", \n    \"Emece\"\n   ], \n   \"language\":
+        [\n    \"spa\", \n    \"eng\"\n   ], \n   \"lccn\": [\n    \"2001088568\",
+        \n    \"01088568\", \n    \"2001048025\"\n   ], \n   \"last_modified_i\":
+        1334686025, \n   \"first_publish_year\": 1988, \n   \"id_librarything\": [\n
+        \   \"5758\"\n   ], \n   \"cover_edition_key\": \"OL3957257M\", \n   \"first_sentence\":
+        [\n    \"THE EMPIRE GRILL was long and low-slung, with windows that ran its
+        entire length, and since the building next door, a Rexall drugstore, had been
+        condemned and razed, it was now possible to sit at the lunch counter and see
+        straight down Empire Avenue all the way to the old textile mill and its adjacent
+        shirt factory.\"\n   ], \n   \"publish_year\": [\n    2002, \n    2003, \n
+        \   2001, \n    1988, \n    2005\n   ], \n   \"publish_date\": [\n    \"2002\",
+        \n    \"March 2003\", \n    \"2001\", \n    \"May 10, 2005\", \n    \"1988\"\n
+        \  ], \n   \"place\": [\n    \"Maine\"\n   ]\n  }, \n  {\n   \"title_suggest\":
+        \"The conquest of Turkey =\", \n   \"publish_place\": [\n    \"Philadelphia\"\n
+        \  ], \n   \"has_fulltext\": false, \n   \"language\": [\n    \"eng\"\n   ],
+        \n   \"edition_count\": 1, \n   \"edition_key\": [\n    \"OL20116532M\"\n
+        \  ], \n   \"last_modified_i\": 1291421014, \n   \"publisher\": [\n    \"Hubbard
+        Bros.\"\n   ], \n   \"title\": \"The conquest of Turkey =\", \n   \"subject\":
+        [\n    \"Eastern question (Balkan)\", \n    \"Russo-Turkish War, 1877-1878\"\n
+        \  ], \n   \"author_name\": [\n    \"L. P. Brockett\"\n   ], \n   \"publish_year\":
+        [\n    1878\n   ], \n   \"first_publish_year\": 1878, \n   \"key\": \"OL3906831W\",
+        \n   \"text\": [\n    \"OL20116532M\", \n    \"L. P. Brockett\", \n    \"Bliss,
+        Porter Cornelius, 1838-1885,\", \n    \"OL710778A\", \n    \"Eastern question
+        (Balkan)\", \n    \"Russo-Turkish War, 1877-1878\", \n    \"or, The decline
+        and fall of the Ottoman empire, 1877-8 : A complete history of the late war
+        between Russia and Turkey ... to which is added biographical sketches of the
+        leading actors in this great drama\", \n    \"The conquest of Turkey =\",
+        \n    \"OL3906831W\", \n    \"by L.P. Brockett and Hon. Porter C. Bliss.\",
+        \n    \"Hubbard Bros.\"\n   ], \n   \"contributor\": [\n    \"Bliss, Porter
+        Cornelius, 1838-1885,\"\n   ], \n   \"publish_date\": [\n    \"1878\"\n   ],
+        \n   \"author_key\": [\n    \"OL710778A\"\n   ], \n   \"ebook_count_i\": 0\n
+        \ }\n ]\n}"
+    http_version: 
+  recorded_at: Thu, 26 Dec 2013 18:24:13 GMT
+recorded_with: VCR 2.8.0

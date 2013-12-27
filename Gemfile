@@ -20,6 +20,8 @@ group :test do
   gem "shoulda-matchers"
   gem "faker"
   gem "fabrication"
+  gem 'webmock'
+  gem 'vcr'
 end
 
 
@@ -40,11 +42,11 @@ gem 'jquery-rails'
 
 group :development, :test do
   gem 'rspec-rails', ' ~> 3.0.0.beta'
+  gem 'pry'
 end
 
 group :development do
   gem 'sqlite3'
-  gem 'pry'
   gem 'annotate'
 end
 

@@ -1,0 +1,35 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://openlibrary.org/search.json?q=5a5a5a5a5a
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/0.8.54
+      Date:
+      - Thu, 26 Dec 2013 18:24:12 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ol-Stats:
+      - ! '"SR 1 1.657 TT 0 1.658"'
+    body:
+      encoding: US-ASCII
+      string: ! "{\n \"start\": 0, \n \"num_found\": 0, \n \"numFound\": 0, \n \"docs\":
+        []\n}"
+    http_version: 
+  recorded_at: Thu, 26 Dec 2013 18:24:12 GMT
+recorded_with: VCR 2.8.0
