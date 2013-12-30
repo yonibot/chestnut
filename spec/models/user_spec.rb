@@ -22,10 +22,10 @@ describe User do
     
   it { should have_many(:book_ownerships).with_foreign_key('owner_id')}
   it { should have_many(:book_borrowings).with_foreign_key('borrower_id')}
-  it { should have_many(:facebook_friends).class_name(:UserFriendship)}
+  it { should have_many(:facebook_friends)}
 
-  describe "#get_fb_friends" do
-    it "adds UserFriendship records for each fb friend" 
+  describe "#get_fb_friends", :vcr do
+    it "adds UserFriendship records for each fb friend"
 
     it "does not add double records for existing fb friends"
 

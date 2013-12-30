@@ -29,6 +29,7 @@ class User < ActiveRecord::Base
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.email = auth.info.email
       user.location = auth.info.location
+      user.registered = true
       user.save!
     end
   end
@@ -38,7 +39,10 @@ class User < ActiveRecord::Base
   has_many :book_ownerships, class_name: "LibraryItem", foreign_key: "owner_id"
   has_many :book_borrowings, class_name: "LibraryItem", foreign_key: "borrower_id"
 
-  has_many :facebook_friends, class_name: "UserFriendship", foreign_key: "user_id"
+  has_many :user_friendships
+  has_many :facebook_friends, through: :user_friendships
+  
+  # has_many :facebook_friends, through: :user_friendships, class_name: "User"
 
 
   def facebook
@@ -47,8 +51,26 @@ class User < ActiveRecord::Base
 
   def get_fb_friends
     @facebook ||= Koala::Facebook::API.new(self.oauth_token)
-    self.fb_friends = @facebook.get_connections("me", "friends")
-    self.save
+    @fb_friends = @facebook.get_connections("me", "friends")
+  end
+
+  def add_fb_friends_to_chestnut
+    @fb_friends.each do |friend|
+      # if friend is in the db && user and 'friend' are not fb friends in the database
+      if User.where(name: friend["name"]).first && !self.facebook_friends.where(name: friend["name"]).first
+        # add their friendship to the database
+        new_friendship = UserFriendship.new(user: self, facebook_friend: User.where(name: friend["name"]).first)
+        new_friendship.save
+      # elsif friend is not in the db
+      elsif !User.where(name: friend["name"]).first
+        # add friend to the db
+        new_user = User.new(name: friend["name"], uid: friend["id"], registered: false)
+        new_user.save
+        # add friendship link
+        new_friendship = UserFriendship.new(user: self, facebook_friend: new_user)
+        new_friendship.save
+      end
+    end
   end
 
   def get_profile_picture
@@ -57,16 +79,7 @@ class User < ActiveRecord::Base
   end
 
   def friends_with_chestnut
-    @friends_w_c = []
-    if self.fb_friends != nil
-      self.fb_friends.each do |friend|
-        if User.where(name: friend["name"]).first
-          @friends_w_c.push(User.where(name: friend["name"]).first)
-        end
-      end
-    end
-    return @friends_w_c
+    self.facebook_friends.where(registered: true)
   end
-
 
 end

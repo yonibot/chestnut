@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131229192535) do
+ActiveRecord::Schema.define(:version => 20131230084246) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -55,9 +55,9 @@ ActiveRecord::Schema.define(:version => 20131229192535) do
 
   create_table "user_friendships", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "fb_friend_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer  "facebook_friend_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(:version => 20131229192535) do
     t.string   "email"
     t.string   "location"
     t.boolean  "alpha"
-    t.text     "fb_friends"
     t.string   "profile_picture"
+    t.boolean  "registered"
   end
 
 end
