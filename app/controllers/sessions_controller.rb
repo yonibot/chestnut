@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id
     flash[:success] = "You are now signed in. Enjoy!"
     user.get_fb_friends
+    user.add_fb_friends_to_chestnut
     user.get_profile_picture
     redirect_to root_path
   end
