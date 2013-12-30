@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
   has_many :book_ownerships, class_name: "LibraryItem", foreign_key: "owner_id"
   has_many :book_borrowings, class_name: "LibraryItem", foreign_key: "borrower_id"
 
-  
+  has_many :facebook_friends, class_name: "UserFriendship", foreign_key: "user_id"
 
 
   def facebook
