@@ -2,7 +2,7 @@ class Admin::SessionsController < AdminsController
 
 
   def index
-    @users = User.all
+    @users = User.where(registered: true)
   end
 
   def create
