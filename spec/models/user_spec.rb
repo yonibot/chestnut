@@ -13,7 +13,8 @@
 #  email            :string(255)
 #  location         :string(255)
 #  alpha            :boolean
-#  fb_friends       :text
+#  profile_picture  :string(255)
+#  registered       :boolean
 #
 
 require 'spec_helper'

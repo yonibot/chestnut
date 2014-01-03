@@ -13,7 +13,8 @@
 #  email            :string(255)
 #  location         :string(255)
 #  alpha            :boolean
-#  fb_friends       :text
+#  profile_picture  :string(255)
+#  registered       :boolean
 #
 
 class User < ActiveRecord::Base
@@ -34,16 +35,12 @@ class User < ActiveRecord::Base
     end
   end
 
-  serialize :fb_friends
 
   has_many :book_ownerships, class_name: "LibraryItem", foreign_key: "owner_id"
   has_many :book_borrowings, class_name: "LibraryItem", foreign_key: "borrower_id"
 
   has_many :user_friendships
   has_many :facebook_friends, through: :user_friendships
-  
-  # has_many :facebook_friends, through: :user_friendships, class_name: "User"
-
 
   def facebook
     @facebook ||= Koala::Facebook::API.new(self.oauth_token)
