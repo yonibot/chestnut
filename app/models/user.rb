@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
       # elsif friend is not in the db
       elsif !User.where(name: friend["name"]).first
         # add friend to the db
-        new_user = User.new(name: friend["name"], uid: friend["id"], registered: false)
+        new_user = User.new(name: friend["name"], uid: friend["id"], provider: "facebook", registered: false)
         new_user.save
         # add friendship link
         new_friendship = UserFriendship.new(user: self, facebook_friend: new_user)
