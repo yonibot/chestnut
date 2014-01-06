@@ -1,8 +1,5 @@
 %h1 Roasted Chestnuts: The Blog
 
-/ .center_buttons
-/   = button_to "Follow the blog :)", follow_blog_path(follow: true), method: :post, class:"btn btn-primary", follow: true
-/   = button_to "Unfollow the blog :(", follow_blog_path(follow: false), method: :post, class:"btn btn-danger", follow: false
 
 - if current_user.admin?
   = bootstrap_form_for @blog_post do |f|
