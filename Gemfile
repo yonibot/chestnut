@@ -19,6 +19,7 @@ gem 'bootstrap_form'
 gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
+gem 'unicorn'
 
 
 group :test do
