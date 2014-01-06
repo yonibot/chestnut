@@ -15,6 +15,9 @@
 #  alpha            :boolean
 #  profile_picture  :string(255)
 #  registered       :boolean
+#  token            :string(255)
+#  admin            :boolean
+#  blog_follower    :boolean
 #
 
 Fabricator(:user) do
@@ -22,4 +25,5 @@ Fabricator(:user) do
   name "#{Faker::Name.first_name} #{Faker::Name.last_name}"
   location "#{ Faker::Address.city}, #{Faker::Address.country}"
   provider 'facebook'
+
 end

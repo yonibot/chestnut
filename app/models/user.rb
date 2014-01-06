@@ -15,6 +15,9 @@
 #  alpha            :boolean
 #  profile_picture  :string(255)
 #  registered       :boolean
+#  token            :string(255)
+#  admin            :boolean
+#  blog_follower    :boolean
 #
 
 class User < ActiveRecord::Base

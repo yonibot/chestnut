@@ -9,17 +9,9 @@
 #  updated_at :datetime         not null
 #
 
-class BlogPost < ActiveRecord::Base
+Fabricator(:blog_post) do
 
-  before_create :convert_body_to_html
-
-  validates_presence_of :title, :body
-
-  private
-
-  def convert_body_to_html
-    self.body = BlueCloth.new(self.body).to_html
-  end
-
+  title { Faker::Company.catch_phrase.titleize }
+  body { Faker::Lorem.paragraph(12) }
 
 end
