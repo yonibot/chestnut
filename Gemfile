@@ -14,6 +14,8 @@ gem 'koala'
 gem 'thin'
 gem 'public_activity'
 gem 'will_paginate'
+gem 'bluecloth'
+gem 'bootstrap_form'
 
 
 group :test do

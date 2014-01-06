@@ -24,6 +24,7 @@ describe User do
   it { should have_many(:book_ownerships).with_foreign_key('owner_id')}
   it { should have_many(:book_borrowings).with_foreign_key('borrower_id')}
   it { should have_many(:facebook_friends)}
+  it { should have_many(:blog_posts).with_foreign_key('follower_id')}
 
   describe "#get_fb_friends", :vcr do
     it "adds UserFriendship records for each fb friend"
@@ -35,3 +36,14 @@ describe User do
 
 
 end
+
+
+
+
+
+
+
+
+
+
+

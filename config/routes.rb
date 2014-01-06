@@ -8,6 +8,8 @@ Chestnut2::Application.routes.draw do
 
   resources :friends_library_items
 
+  get '/admin', to: 'admin/sessions#index'
+
   namespace :admin do
     resources :sessions
   end
@@ -19,6 +21,11 @@ Chestnut2::Application.routes.draw do
   end
 
   get '/find', to: 'library_items#find'
+
+  resources :blog_posts
+
+  post '/follow_blog', to: 'users#update', as: 'follow_blog'
+
 
 
   # The priority is based upon order of creation:

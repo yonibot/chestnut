@@ -32,9 +32,11 @@ GEM
     annotate (2.5.0)
       rake
     arel (3.0.3)
+    bluecloth (2.2.0)
     bootstrap-sass-rails (3.0.3.0)
       railties (>= 3.1.0)
       sass-rails (>= 3.1.0)
+    bootstrap_form (2.0.1)
     builder (3.0.4)
     coderay (1.0.9)
     coffee-rails (3.2.2)
@@ -200,7 +202,9 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  bluecloth
   bootstrap-sass-rails
+  bootstrap_form
   coffee-rails (~> 3.2.1)
   fabrication
   faker
