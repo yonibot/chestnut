@@ -1,5 +1,0 @@
-== Project Chestnut
-
-An app that makes it easy to keep track of your books.
-
-Looking for a particular book? Maybe a friend has it! Find out easily, and keep track of borrowed books.
