@@ -42,6 +42,7 @@ class User < ActiveRecord::Base
   has_many :user_friendships
   has_many :facebook_friends, through: :user_friendships
 
+
   def facebook
     @facebook ||= Koala::Facebook::API.new(self.oauth_token)
   end
@@ -78,5 +79,10 @@ class User < ActiveRecord::Base
   def friends_with_chestnut
     self.facebook_friends.where(registered: true)
   end
+
+  def friends_with?(user)
+    return true if self.friends_with_chestnut.include?(user)
+  end
+
 
 end

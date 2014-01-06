@@ -16,5 +16,5 @@
 //= require twitter/bootstrap
 
 $(document).ready(function() {
- $("#e9").select2( {width: 'resolve'}); 
+ $(".e9").select2( {width: 'resolve'}); 
 });

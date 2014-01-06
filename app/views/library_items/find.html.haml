@@ -1,10 +1,10 @@
 .container
   .row
-    %h2 Find a book to borrow
+    %h2 Your friends' books
     = form_tag find_path, method: "get" do
-      = select_tag(:search, options_for_select(@users_friends_book_titles_for_select.zip(@users_friends_book_ids_for_select).unshift(["Books your friends own", ""])), id: "e9", style: 'width:260px')
+      = select_tag(:search_by_title, options_for_select(@users_friends_book_titles_for_select.zip(@users_friends_book_ids_for_select).unshift(["", ""])), class: "e9", style: 'width:260px')
       = submit_tag "Search by title", class: 'btn btn-info'
-  - if params[:search]
+  - if params[:search_by_title]
     .row
       %h2 Friends' Libraries
       %table.table.table-hover
@@ -29,3 +29,36 @@
               - else
                 %td
               %td= link_to record.owner.name, user_library_items_path(record.owner)
+  / .row
+  /   %h2 Books in your city
+  /   = form_tag find_path, method: "get" do
+  /     = select_tag(:search_by_city, options_for_select(@city_book_titles_for_select.zip(@city_book_ids_for_select).unshift(["", ""])), class: "e9", style: 'width:260px')
+  /     = submit_tag "Search by city", class: 'btn btn-info'
+  / - if params[:search_by_city]
+  /   .row
+  /     %h2 Friends' Libraries
+  /     %table.table.table-hover
+  /       %thead
+  /         %tr
+  /           %th 
+  /           %th Title
+  /           %th Author
+  /           %th
+  /           %th Owner
+  /       %tbody
+  /         - @library_by_city_results.each_with_index do |record, i|
+  /           %tr
+  /             %td= i+1
+  /             %td
+  /               = record.book.title
+  /               %a(href="http://www.amazon.com/exec/obidos/tg/detail/-/#{record.book.isbn10}")
+  /                 View on Amazon
+  /             %td= record.book.author
+  /             - if record.owner.profile_picture
+  /               %td= image_tag(record.owner.profile_picture, class: "circular circular-header")
+  /             - else
+  /               %td
+  /             - if current_user.friends_with?(record.owner)
+  /               %td= link_to record.owner.name, user_library_items_path(record.owner)
+  /             - else
+  /               %td= record.owner.name

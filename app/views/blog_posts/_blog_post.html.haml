@@ -1,0 +1,11 @@
+.container
+  .row
+    %h3
+      #{"<span class= 'glyphicon glyphicon-pushpin'></span>  #{blog_post.title}".html_safe}
+    %p
+      %small Posted on #{blog_post.created_at.strftime('%A, %B %-d, %Y, at %l:%M%P')}
+  .row
+    %p= raw blog_post.body
+
+
+

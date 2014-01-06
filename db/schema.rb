@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131230084246) do
+ActiveRecord::Schema.define(:version => 20140105163928) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(:version => 20131230084246) do
   add_index "activities", ["recipient_id", "recipient_type"], :name => "index_activities_on_recipient_id_and_recipient_type"
   add_index "activities", ["trackable_id", "trackable_type"], :name => "index_activities_on_trackable_id_and_trackable_type"
 
+  create_table "blog_posts", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "books", :force => true do |t|
     t.string   "isbn10"
     t.string   "isbn13"
@@ -37,6 +44,18 @@ ActiveRecord::Schema.define(:version => 20131230084246) do
     t.string   "author"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "headshot_photos", :force => true do |t|
+    t.string   "description"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.integer  "capturable_id"
+    t.string   "capturable_type"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "library_items", :force => true do |t|
@@ -73,6 +92,9 @@ ActiveRecord::Schema.define(:version => 20131230084246) do
     t.boolean  "alpha"
     t.string   "profile_picture"
     t.boolean  "registered"
+    t.string   "token"
+    t.boolean  "admin"
+    t.boolean  "blog_follower"
   end
 
 end
