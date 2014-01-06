@@ -1,4 +1,3 @@
-require 'sidekiq/web'
 
 Chestnut2::Application.routes.draw do
 
