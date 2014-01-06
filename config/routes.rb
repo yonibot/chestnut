@@ -17,13 +17,21 @@ Chestnut2::Application.routes.draw do
 
   resources :books, only: [:create, :destroy]
 
-  resources :users do
+  resources :users, only: [] do
     resources :library_items, only: [:index, :create, :destroy]
   end
 
   get '/find', to: 'library_items#find'
 
   resources :blog_posts
+
+  namespace :api, defaults: {format: 'json'} do
+    namespace :v1 do
+      resources :users, only: [] do
+        resources :library_items, only: [:index, :create, :destroy]
+      end
+    end
+  end
 
 
 end
