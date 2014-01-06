@@ -2,12 +2,10 @@ class SessionsController < ApplicationController
 
   def create
     # raise request.env['omniauth.auth'].to_yaml
-    user = User.from_omniauth(env["omniauth.auth"])
-    session[:user_id] = user.id
+    @user = User.from_omniauth(env["omniauth.auth"])
+    session[:user_id] = @user.id
     flash[:success] = "You are now signed in. Enjoy!"
-    user.get_fb_friends
-    user.add_fb_friends_to_chestnut
-    user.get_profile_picture
+    FacebookWorker.perform_async(@user.id)
     redirect_to root_path
   end
 

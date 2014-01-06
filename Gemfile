@@ -16,6 +16,9 @@ gem 'public_activity'
 gem 'will_paginate'
 gem 'bluecloth'
 gem 'bootstrap_form'
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim'
 
 
 group :test do
